@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ICS_PROJ
 {
-    internal class UserEntity
+    public record UserEntity(Guid UserID,
+        string Name,
+        string Surname,
+        string? Photo)
     {
-        public Guid UserID { get; private set; }
-        public string Name { get; private set; }
-        public string Surname { get; private set; }
-        public string Photo { get; private set; }
+
     }
 }
