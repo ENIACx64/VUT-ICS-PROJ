@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jindr\\Documents\\GitHub\\VUT-ICS-PROJ\\ICS-PROJ\\ICS-PROJ\\DB.csproj",
-      "projectName": "DB",
-      "projectPath": "C:\\Users\\jindr\\Documents\\GitHub\\VUT-ICS-PROJ\\ICS-PROJ\\ICS-PROJ\\DB.csproj",
+      "projectUniqueName": "C:\\Users\\jindr\\Documents\\GitHub\\VUT-ICS-PROJ\\ICS-PROJ\\test\\test.csproj",
+      "projectName": "test",
+      "projectPath": "C:\\Users\\jindr\\Documents\\GitHub\\VUT-ICS-PROJ\\ICS-PROJ\\test\\test.csproj",
       "packagesPath": "C:\\Users\\jindr\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jindr\\Documents\\GitHub\\VUT-ICS-PROJ\\ICS-PROJ\\ICS-PROJ\\obj\\",
+      "outputPath": "C:\\Users\\jindr\\Documents\\GitHub\\VUT-ICS-PROJ\\ICS-PROJ\\test\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\jindr\\AppData\\Roaming\\NuGet\\NuGet.Config",
