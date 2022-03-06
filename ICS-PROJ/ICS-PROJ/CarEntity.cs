@@ -24,14 +24,14 @@ namespace ICS_PROJ
     /// <summary>
     /// Constructor
     /// </summary>
-    /// <param name="LicensePlate"></param>
+    /// <param name="CarID"></param>
     /// <param name="Manufacturer"></param>
     /// <param name="Model"></param>
     /// <param name="Type"></param>
     /// <param name="DateOfRegistration"></param>
     /// <param name="Photo"></param>
     /// <param name="NumberOfSeats"></param>
-    public record CarEntity(string LicensePlate,
+    public record CarEntity(string CarID,
         string Manufacturer,
         string Model,
         CarType Type,
