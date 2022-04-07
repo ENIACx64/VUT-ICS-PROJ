@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jindr\\Desktop\\test\\ICS-PROJ\\DB\\DB.csproj",
+      "projectUniqueName": "C:\\Users\\jindr\\Documents\\GitHub\\VUT-ICS-PROJ\\ICS-PROJ\\DB\\DB.csproj",
       "projectName": "DB",
-      "projectPath": "C:\\Users\\jindr\\Desktop\\test\\ICS-PROJ\\DB\\DB.csproj",
+      "projectPath": "C:\\Users\\jindr\\Documents\\GitHub\\VUT-ICS-PROJ\\ICS-PROJ\\DB\\DB.csproj",
       "packagesPath": "C:\\Users\\jindr\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jindr\\Desktop\\test\\ICS-PROJ\\DB\\obj\\",
+      "outputPath": "C:\\Users\\jindr\\Documents\\GitHub\\VUT-ICS-PROJ\\ICS-PROJ\\DB\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
