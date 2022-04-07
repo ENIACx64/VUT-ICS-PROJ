@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace ICS_PROJ
+namespace DB
 {
     /// <summary>
     /// Enum for different car types
@@ -22,14 +24,14 @@ namespace ICS_PROJ
     /// <summary>
     /// Constructor
     /// </summary>
-    /// <param name="ID"></param>
+    /// <param name="CarID"></param>
     /// <param name="Manufacturer"></param>
     /// <param name="Model"></param>
     /// <param name="Type"></param>
     /// <param name="DateOfRegistration"></param>
     /// <param name="Photo"></param>
     /// <param name="NumberOfSeats"></param>
-    public record CarEntity(string ID,
+    public record CarEntity(string CarID,
         string Manufacturer,
         string Model,
         CarType Type,
@@ -40,7 +42,7 @@ namespace ICS_PROJ
         /// <summary>
         /// Represents the owner of the car
         /// </summary>
-        public UserEntity? OwnerID;
+        public UserEntity? Owner;
         /// <summary>
         /// Collection of rides for this car
         /// </summary>

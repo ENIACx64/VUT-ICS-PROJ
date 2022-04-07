@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ICS_PROJ
+namespace DB
 {
     /// <summary>
     /// Constructor
