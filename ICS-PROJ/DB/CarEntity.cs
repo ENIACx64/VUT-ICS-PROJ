@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace DB
 {
@@ -24,14 +22,14 @@ namespace DB
     /// <summary>
     /// Constructor
     /// </summary>
-    /// <param name="CarID"></param>
+    /// <param name="ID"></param>
     /// <param name="Manufacturer"></param>
     /// <param name="Model"></param>
     /// <param name="Type"></param>
     /// <param name="DateOfRegistration"></param>
     /// <param name="Photo"></param>
     /// <param name="NumberOfSeats"></param>
-    public record CarEntity(string CarID,
+    public record CarEntity(string ID,
         string Manufacturer,
         string Model,
         CarType Type,
@@ -42,7 +40,7 @@ namespace DB
         /// <summary>
         /// Represents the owner of the car
         /// </summary>
-        public UserEntity? Owner;
+        public UserEntity? OwnerID;
         /// <summary>
         /// Collection of rides for this car
         /// </summary>
