@@ -40,7 +40,11 @@ namespace DB
         /// <summary>
         /// Represents the owner of the car
         /// </summary>
-        public UserEntity? OwnerID;
+        public UserEntity? Owner;
+        /// <summary>
+        /// Stores the ID of the owner
+        /// </summary>
+        public Guid? OwnerID;
         /// <summary>
         /// Collection of rides for this car
         /// </summary>
