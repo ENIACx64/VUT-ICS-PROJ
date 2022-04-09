@@ -1,24 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using DB.Enums;
 
-namespace DB
+namespace DB.Entities
 {
-    /// <summary>
-    /// Enum for different car types
-    /// </summary>
-    public enum CarType
-    {
-        None,
-        Hatchback,
-        Saloon,
-        Coupe,
-        SUV,
-        Cabriolet,
-        Estate,
-        Van,
-        Other
-    }
     /// <summary>
     /// Constructor
     /// </summary>
@@ -29,7 +15,7 @@ namespace DB
     /// <param name="DateOfRegistration"></param>
     /// <param name="Photo"></param>
     /// <param name="NumberOfSeats"></param>
-    public record CarEntity(string ID,
+    public record CarEntity(Guid ID,
         string Manufacturer,
         string Model,
         CarType Type,
