@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using DB.Enums;
 
 namespace DB.Models.Car
 {

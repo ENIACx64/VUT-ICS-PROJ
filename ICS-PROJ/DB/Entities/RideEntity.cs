@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DB
+namespace DB.Entities
 {
     /// <summary>
     /// Constructor
