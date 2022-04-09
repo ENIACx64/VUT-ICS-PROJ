@@ -7,14 +7,14 @@ namespace DB.Entities
     /// <summary>
     /// Constructor
     /// </summary>
-    /// <param name="UserID"></param>
+    /// <param name="ID"></param>
     /// <param name="Name"></param>
     /// <param name="Surname"></param>
     /// <param name="Photo"></param>
-    public record UserEntity(Guid UserID,
+    public record UserEntity(Guid ID,
         string Name,
         string Surname,
-        string? Photo)
+        string? Photo) : IEntity<Guid>
     {
         /// <summary>
         /// Collection of owned cars
