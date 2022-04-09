@@ -7,16 +7,16 @@ namespace DB.Entities
     /// <summary>
     /// Constructor
     /// </summary>
-    /// <param name="RideID"></param>
+    /// <param name="ID"></param>
     /// <param name="StartLocation"></param>
     /// <param name="EndLocation"></param>
     /// <param name="TimeOfDeparture"></param>
     /// <param name="TimeOfArrival"></param>
-    public record RideEntity(Guid RideID,
+    public record RideEntity(Guid ID,
         string StartLocation,
         string EndLocation,
         DateTime TimeOfDeparture,
-        DateTime TimeOfArrival)
+        DateTime TimeOfArrival) : IEntity<Guid>
     {
         /// <summary>
         /// Represents the car
