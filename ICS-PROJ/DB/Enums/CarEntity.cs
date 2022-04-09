@@ -29,7 +29,7 @@ namespace DB
     /// <param name="DateOfRegistration"></param>
     /// <param name="Photo"></param>
     /// <param name="NumberOfSeats"></param>
-    public record CarEntity(string ID,
+    public record CarEntity(Guid ID,
         string Manufacturer,
         string Model,
         CarType Type,
