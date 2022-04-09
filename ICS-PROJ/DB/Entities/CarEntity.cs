@@ -21,7 +21,7 @@ namespace DB.Entities
         CarType Type,
         DateTime DateOfRegistration,
         string? Photo,
-        int NumberOfSeats)
+        int NumberOfSeats) : IEntity<Guid>
     {
         /// <summary>
         /// Represents the owner of the car
