@@ -8,22 +8,34 @@ using DB.Entities;
 using System.Threading.Tasks;
 using BL.Models;
 using System;
+using AutoMapper;
+using AutoMapper.EquivalencyExpression;
 
 namespace DB.Tests
 {
     public class UnitOfWorkTests : BaseTest<IUnitOfWork>
     {
+        private readonly IMapper mapper;
+
         public UnitOfWorkTests()
         {
             var dBContextOptions = new DbContextOptionsBuilder<ProjectDbContext>()
                 .UseInMemoryDatabase(nameof(ProjectDbContextTests));
 
             var context = new TestDbContext(dBContextOptions.Options);
-
             context.RideEntities.Add(RideSeeds.Ride1);
             context.CarEntities.Add(CarSeeds.MiniCooper);
             context.UserEntities.Add(UserSeeds.User1);
             context.SaveChanges();
+
+            mapper = new Mapper(new MapperConfiguration(cfg =>
+            {
+                cfg.AddMaps(typeof(IModel<Guid>));
+                cfg.AddCollectionMappers();
+                cfg.UseEntityFrameworkCoreModel<ProjectDbContext>(context.Model);
+            }));
+
+            mapper.ConfigurationProvider.AssertConfigurationIsValid();
 
             SUT = new DB.UnitOfWork.UnitOfWork(context);
         }
@@ -44,9 +56,10 @@ namespace DB.Tests
         [Fact]
         public async Task InsertRepository()
         {
-            var carmodel = new CarDetailModel { 
+            var carmodel = new CarDetailModel
+            {
                 ID = Guid.Parse("{DE7A8123-2624-402C-BB68-30BEFECE0291}"),
-                DateOfRegistration = new DateTime(2021,08,13),
+                DateOfRegistration = new DateTime(2021, 08, 13),
                 Manufacturer = "Zaporozec",
                 Model = "M6",
                 NumberOfSeats = 5,
@@ -54,12 +67,11 @@ namespace DB.Tests
                 Type = Enums.CarType.Saloon
             };
 
-            //SUT.GetRepository<UserEntity>().InsertOrUpdateAsync<CarDetailModel>(carmodel);
+            await SUT.GetRepository<CarEntity>().InsertOrUpdateAsync<CarDetailModel>(carmodel, mapper);
             await SUT.CommitAsync();
 
             var entity = SUT.GetRepository<CarEntity>().Get().SingleOrDefault(x => x.Model == carmodel.Model);
             Assert.NotNull(entity);
-
         }
     }
 }

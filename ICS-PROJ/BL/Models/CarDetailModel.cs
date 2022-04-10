@@ -21,7 +21,7 @@ namespace BL.Models
         {
             public CarMapperProfile()
             {
-                CreateMap<CarEntity, CarDetailModel>();
+                CreateMap<CarEntity, CarDetailModel>().ReverseMap();
             }
         }
     }

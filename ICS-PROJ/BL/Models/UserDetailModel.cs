@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using AutoMapper;
 using DB.Entities;
-using AutoMapper;
 
 namespace BL.Models
 {
@@ -17,7 +14,7 @@ namespace BL.Models
         {
             public UserMapperProfile()
             {
-                CreateMap<UserEntity, UserListModel>();
+                CreateMap<UserEntity, UserDetailModel>();
             }
         }
     }
