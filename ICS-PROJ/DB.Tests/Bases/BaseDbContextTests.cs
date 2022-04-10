@@ -1,10 +1,7 @@
-﻿
-using DB.Contexts;
+﻿using DB.Contexts;
 using DB.Tests.Factories;
-using DB.Tests.Seeds;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Linq;
 
 namespace DB.Tests.Bases;
 

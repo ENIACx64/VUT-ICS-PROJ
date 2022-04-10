@@ -1,5 +1,4 @@
 ﻿using DB.Contexts;
-using DB.Tests.Seeds;
 using Microsoft.EntityFrameworkCore;
 
 namespace DB.Tests
