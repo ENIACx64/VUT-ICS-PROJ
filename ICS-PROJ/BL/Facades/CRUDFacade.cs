@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using DB.Entities;
+﻿using AutoMapper;
 using BL.Models;
+using DB.Entities;
 using DB.UnitOfWork;
-using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 
 namespace BL.Facades
 {
-    public class CRUDFacade<TEntity, TListModel, TDetailModel>
+    public abstract class CRUDFacade<TEntity, TListModel, TDetailModel>
         where TEntity : class, IEntity<Guid>
         where TListModel : IModel<Guid>
         where TDetailModel : class, IModel<Guid>
