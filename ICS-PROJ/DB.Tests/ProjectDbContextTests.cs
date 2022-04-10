@@ -1,27 +1,15 @@
 
 using DB.Contexts;
-using DB.Tests.Seeds;
-using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using Xunit;
 
 namespace DB.Tests
 {
-    public class ProjectDbContextTests : BaseTest<IProjectDbContext>
+    public class ProjectDbContextTests : Bases.BaseDbContextTests<IProjectDbContext>
     {
         public ProjectDbContextTests()
         {
-            var dBContextOptions = new DbContextOptionsBuilder<ProjectDbContext>()
-                .UseInMemoryDatabase(nameof(ProjectDbContextTests));
-
-            var context = new TestDbContext(dBContextOptions.Options);
-
-            context.RideEntities.Add(RideSeeds.Ride1);
-            context.CarEntities.Add(CarSeeds.MiniCooper);
-            context.UserEntities.Add(UserSeeds.User1);
-            context.SaveChanges();
-
-            SUT = context;
+            SUT = DbContext.Value;
         }
 
         [Fact]

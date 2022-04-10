@@ -1,43 +1,19 @@
-﻿using DB.Contexts;
-using DB.Tests.Seeds;
-using Microsoft.EntityFrameworkCore;
-using System.Linq;
-using Xunit;
-using DB.UnitOfWork;
+﻿using BL.Models;
 using DB.Entities;
-using System.Threading.Tasks;
-using BL.Models;
+using DB.Tests.Seeds;
+using DB.UnitOfWork;
 using System;
-using AutoMapper;
-using AutoMapper.EquivalencyExpression;
+using System.Linq;
+using System.Threading.Tasks;
+using Xunit;
 
 namespace DB.Tests
 {
-    public class UnitOfWorkTests : BaseTest<IUnitOfWork>
+    public class UnitOfWorkTests : Bases.BaseMapperTests<IUnitOfWork>
     {
-        private readonly IMapper mapper;
-
         public UnitOfWorkTests()
         {
-            var dBContextOptions = new DbContextOptionsBuilder<ProjectDbContext>()
-                .UseInMemoryDatabase(nameof(ProjectDbContextTests));
-
-            var context = new TestDbContext(dBContextOptions.Options);
-            context.RideEntities.Add(RideSeeds.Ride1);
-            context.CarEntities.Add(CarSeeds.MiniCooper);
-            context.UserEntities.Add(UserSeeds.User1);
-            context.SaveChanges();
-
-            mapper = new Mapper(new MapperConfiguration(cfg =>
-            {
-                cfg.AddMaps(typeof(IModel<Guid>));
-                cfg.AddCollectionMappers();
-                cfg.UseEntityFrameworkCoreModel<ProjectDbContext>(context.Model);
-            }));
-
-            mapper.ConfigurationProvider.AssertConfigurationIsValid();
-
-            SUT = new DB.UnitOfWork.UnitOfWork(context);
+            SUT = new DB.UnitOfWork.UnitOfWork(DbContext.Value);
         }
 
         [Fact]
@@ -67,7 +43,7 @@ namespace DB.Tests
                 Type = Enums.CarType.Saloon
             };
 
-            await SUT.GetRepository<CarEntity>().InsertOrUpdateAsync<CarDetailModel>(model, mapper);
+            await SUT.GetRepository<CarEntity>().InsertOrUpdateAsync<CarDetailModel>(model, Mapper);
             await SUT.CommitAsync();
 
             var entity = SUT.GetRepository<CarEntity>().Get().SingleOrDefault(x => x.Model == model.Model);
@@ -87,7 +63,7 @@ namespace DB.Tests
                 TimeOfDeparture = new DateTime(2021,12,01,08,19,00)
             };
 
-            await SUT.GetRepository<RideEntity>().InsertOrUpdateAsync<RideDetailModel>(model, mapper);
+            await SUT.GetRepository<RideEntity>().InsertOrUpdateAsync<RideDetailModel>(model, Mapper);
             await SUT.CommitAsync();
 
             var entity = SUT.GetRepository<RideEntity>().Get().SingleOrDefault(x => x.TimeOfArrival == model.TimeOfArrival);
@@ -105,7 +81,7 @@ namespace DB.Tests
                 Photo = "abrakadabra.jpg"
             };
 
-            await SUT.GetRepository<UserEntity>().InsertOrUpdateAsync<UserDetailModel>(model, mapper);
+            await SUT.GetRepository<UserEntity>().InsertOrUpdateAsync<UserDetailModel>(model, Mapper);
             await SUT.CommitAsync();
 
             var entity = SUT.GetRepository<UserEntity>().Get().SingleOrDefault(x => x.Surname == model.Surname && x.Name == model.Name);
