@@ -15,7 +15,7 @@ public abstract class BaseMapperTests<T> : BaseDbContextTests<T>
         {
             cfg.AddMaps(typeof(IModel<Guid>));
             cfg.AddCollectionMappers();
-            cfg.UseEntityFrameworkCoreModel<ProjectDbContext>(DbContext.Value.Model);
+            cfg.UseEntityFrameworkCoreModel<ProjectDbContext>(DbFactory.CreateDbContext().Model);
         }));
 
         Mapper.ConfigurationProvider.AssertConfigurationIsValid();

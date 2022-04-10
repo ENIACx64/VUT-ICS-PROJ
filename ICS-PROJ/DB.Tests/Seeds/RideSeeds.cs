@@ -10,10 +10,9 @@ public static class RideSeeds
         StartLocation: "Valencia",
         EndLocation: "Barcelona",
         TimeOfDeparture: new(2022, 04, 15, 12, 15, 00),
-        TimeOfArrival: new(2022, 04, 15, 16, 15, 00)
-   )
+        TimeOfArrival: new(2022, 04, 15, 16, 15, 00))
     {
-
+        Car = CarSeeds.MiniCooper,
     };
 
 
