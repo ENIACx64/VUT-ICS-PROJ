@@ -1,6 +1,7 @@
 ﻿using DB.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 
 namespace DB.Tests.Seeds;
 
@@ -12,7 +13,8 @@ public static class UserSeeds
         Photo: "lady_gaga_1.jpg"
    )
     {
-
+         OwnedCars = new List<CarEntity> { CarSeeds.MiniCooper },
+         //PassengerRides = new [] { RideSeeds.Ride1 },
     };
 
 

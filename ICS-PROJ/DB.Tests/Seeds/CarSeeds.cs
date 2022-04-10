@@ -14,8 +14,9 @@ public static class CarSeeds
       DateOfRegistration: new(2021, 11, 12),
       Photo: "mini_cooper_5_1.jpg",
       NumberOfSeats: 4)
-    {
-        
+    { 
+            Owner = UserSeeds.User1,
+            OwnerID = UserSeeds.User1.ID
     };
 
     public static void Seed(this ModelBuilder modelBuilder)

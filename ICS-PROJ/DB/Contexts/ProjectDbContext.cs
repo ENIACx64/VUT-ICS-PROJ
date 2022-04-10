@@ -48,8 +48,19 @@ namespace DB.Contexts
                 .WithOne(x => x.Driver);
 
             modelBuilder
+                .Entity<UserEntity>()
+                .HasMany(x => x.OwnedCars)
+                .WithOne(x => x.Owner)
+                .HasForeignKey(x => x.OwnerID);
+
+            modelBuilder
                 .Entity<CarEntity>()
                 .HasKey(x => x.ID);
+
+            modelBuilder
+                .Entity<CarEntity>()
+                .HasOne(x => x.Owner)
+                .WithMany(x => x.OwnedCars);
 
             Seed(modelBuilder);
         }

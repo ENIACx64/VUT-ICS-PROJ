@@ -14,9 +14,9 @@ namespace DB.Tests
         {
             base.OnModelCreating(modelBuilder);
 
-            CarSeeds.Seed(modelBuilder);
-            RideSeeds.Seed(modelBuilder);
-            UserSeeds.Seed(modelBuilder);
+            //CarSeeds.Seed(modelBuilder);
+            //RideSeeds.Seed(modelBuilder);
+            //UserSeeds.Seed(modelBuilder);
 
         }
     }
