@@ -41,7 +41,7 @@ namespace DB.Tests
         }
 
         [Fact]
-        public async Task GetRepository()
+        public async Task UserGetRepository()
         {
             var entity = SUT.GetRepository<UserEntity>().Get().SingleOrDefault(x => x.ID == UserSeeds.User1.ID);
             Assert.NotNull(entity);
@@ -54,9 +54,9 @@ namespace DB.Tests
         }
 
         [Fact]
-        public async Task InsertRepository()
+        public async Task CarInsertRepository()
         {
-            var carmodel = new CarDetailModel
+            var model = new CarDetailModel
             {
                 ID = Guid.Parse("{DE7A8123-2624-402C-BB68-30BEFECE0291}"),
                 DateOfRegistration = new DateTime(2021, 08, 13),
@@ -67,10 +67,48 @@ namespace DB.Tests
                 Type = Enums.CarType.Saloon
             };
 
-            await SUT.GetRepository<CarEntity>().InsertOrUpdateAsync<CarDetailModel>(carmodel, mapper);
+            await SUT.GetRepository<CarEntity>().InsertOrUpdateAsync<CarDetailModel>(model, mapper);
             await SUT.CommitAsync();
 
-            var entity = SUT.GetRepository<CarEntity>().Get().SingleOrDefault(x => x.Model == carmodel.Model);
+            var entity = SUT.GetRepository<CarEntity>().Get().SingleOrDefault(x => x.Model == model.Model);
+            Assert.NotNull(entity);
+        }
+
+
+        [Fact]
+        public async Task RideInsertRepository()
+        {
+            var model = new RideDetailModel
+            {
+                ID = Guid.Parse("{FA4FF1E9-D72F-4859-8F4B-1FD3EF56046F}"),
+                EndLocation = "Rome",
+                StartLocation = "Naples",
+                TimeOfArrival = new DateTime(2021,12,01,15,40,00),
+                TimeOfDeparture = new DateTime(2021,12,01,08,19,00)
+            };
+
+            await SUT.GetRepository<RideEntity>().InsertOrUpdateAsync<RideDetailModel>(model, mapper);
+            await SUT.CommitAsync();
+
+            var entity = SUT.GetRepository<RideEntity>().Get().SingleOrDefault(x => x.TimeOfArrival == model.TimeOfArrival);
+            Assert.NotNull(entity);
+        }
+
+        [Fact]
+        public async Task UserInsertRepository()
+        {
+            var model = new UserDetailModel
+            {
+                ID = Guid.Parse("{D6774EFE-28EA-4796-B0C1-FDE3F534D9D4}"),
+                Name = "Denis",
+                Surname = "Bakham",
+                Photo = "abrakadabra.jpg"
+            };
+
+            await SUT.GetRepository<UserEntity>().InsertOrUpdateAsync<UserDetailModel>(model, mapper);
+            await SUT.CommitAsync();
+
+            var entity = SUT.GetRepository<UserEntity>().Get().SingleOrDefault(x => x.Surname == model.Surname && x.Name == model.Name);
             Assert.NotNull(entity);
         }
     }

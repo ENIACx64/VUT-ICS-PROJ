@@ -18,7 +18,7 @@ namespace BL.Models
         {
             public RideMapperProfile()
             {
-                CreateMap<RideEntity, RideDetailModel>();
+                CreateMap<RideEntity, RideDetailModel>().ReverseMap();
             }
         }
     }
