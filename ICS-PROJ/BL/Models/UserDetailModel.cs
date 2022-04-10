@@ -14,7 +14,7 @@ namespace BL.Models
         {
             public UserMapperProfile()
             {
-                CreateMap<UserEntity, UserDetailModel>();
+                CreateMap<UserEntity, UserDetailModel>().ReverseMap();
             }
         }
     }
