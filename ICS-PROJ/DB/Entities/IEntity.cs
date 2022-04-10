@@ -1,6 +1,6 @@
 ﻿namespace DB.Entities
 {
-    internal interface IEntity<T>
+    public interface IEntity<T>
     {
         T ID { get; }
     }
