@@ -24,5 +24,21 @@ public static class CarSeeds
         modelBuilder.Entity<CarEntity>().HasData( MiniCooper );
     }
 
+    public static readonly CarEntity EmptyCar = new(ID: Guid.Parse("{E41CADD9-D212-4F9A-9FCC-57149E659DC9}"),
+      Manufacturer: default,
+      Model: default,
+      Type: default,
+      DateOfRegistration: default,
+      Photo: default,
+      NumberOfSeats: default)
+    {
+        Owner = default,
+        OwnerID = default
+    };
+
+    public static void Seed1(this ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<CarEntity>().HasData(EmptyCar);
+    }
 }
 

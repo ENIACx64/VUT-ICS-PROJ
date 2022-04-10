@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using DB.Entities;
+﻿using AutoMapper;
 using BL.Models;
+using DB.Entities;
 using DB.UnitOfWork;
-using AutoMapper;
 
 namespace BL.Facades
 {

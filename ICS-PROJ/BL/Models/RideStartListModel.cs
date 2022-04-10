@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using AutoMapper;
 using DB.Entities;
-using AutoMapper;
 
 namespace BL.Models
 {
