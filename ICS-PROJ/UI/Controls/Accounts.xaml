@@ -5,10 +5,18 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UI.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             d:DataContext="{Binding Path=UserListViewModel}">
     <Grid Background="White">
         <Label x:Name="Intro" HorizontalContentAlignment="Center" Content="WELCOME" HorizontalAlignment="Center" Height="56" Margin="0,52,0,0" VerticalAlignment="Top" Width="233" FontFamily="Bahnschrift" FontStyle="Normal" FontSize="48" FontWeight="SemiBold"/>
         <Label Content="INTO THE WORLD OF RIDESHARING" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Height="34" Margin="0,123,0,0" VerticalAlignment="Top" Width="368" FontSize="22" Typography.Capitals="Normal" FontFamily="Bahnschrift" FontWeight="Medium"/>
-        <local:UserProfileLabel VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30"></local:UserProfileLabel>
+        <ItemsControl x:Name="UserControl"/>
+        <!--<ListBox x:Name="UserListBox" ItemsSource="{Binding Users}" Height="200" Width="800" VerticalAlignment="Bottom">
+            <ListBox.ItemTemplate>
+                <DataTemplate >
+                     <Label Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Content="{Binding Name}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>-->
     </Grid>
 </UserControl>

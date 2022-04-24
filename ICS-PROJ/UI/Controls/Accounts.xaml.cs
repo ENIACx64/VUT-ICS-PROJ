@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UI.ViewModels;
 
 namespace UI.Controls
 {
@@ -23,6 +24,9 @@ namespace UI.Controls
         public Accounts()
         {
             InitializeComponent();
+
+            UserControl.DataContext = new UserListViewModel();
+ 
         }
     }
 }

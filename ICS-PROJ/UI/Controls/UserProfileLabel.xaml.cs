@@ -20,9 +20,20 @@ namespace UI.Controls
     /// </summary>
     public partial class UserProfileLabel : UserControl
     {
+        public static readonly DependencyProperty UserNameProperty =
+            DependencyProperty.Register("UserName", typeof(String),
+            typeof(UserProfileLabel), new FrameworkPropertyMetadata(string.Empty));
+
+        public String? UserName
+        {
+            get { return GetValue(UserNameProperty).ToString(); }
+            set { SetValue(UserNameProperty, value); }
+        }
         public UserProfileLabel()
         {
             InitializeComponent();
         }
+
+
     }
 }

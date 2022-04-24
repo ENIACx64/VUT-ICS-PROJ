@@ -4,11 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UI.Controls"
+             x:Name="MyUserControl"
              mc:Ignorable="d" Height="200" Width="150">
     <Grid Background="#FF838383">
-        <Label Content="Label" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="40" VerticalAlignment="Bottom" Width="150"/>
+        <Label  HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="40" VerticalAlignment="Bottom" Width="150"
+             Content="{Binding Path=UserName, ElementName=MyUserControl}"   
+               />
         <Image VerticalAlignment="Top" Width="150" Height="160"/>
-
+        <Label Content="123"></Label>
 
     </Grid>
 </UserControl>
