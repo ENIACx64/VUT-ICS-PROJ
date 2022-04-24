@@ -30,6 +30,14 @@ namespace DB.Tests
 
             DeepAssert.Equal(Mapper.Map<RideStartListModel>(RideSeeds.Ride1), ride);
         }
+
+        [Fact]
+        public async Task GetById_Ride1()
+        {
+            var ride = await SUT.GetAsync(RideSeeds.Ride1.ID);
+
+            DeepAssert.Equal(Mapper.Map<RideDetailModel>(RideSeeds.Ride1), ride);
+        }
     }
 
     public class RideEndFacadeTests : Bases.BaseMapperTests<RideEndFacade>
@@ -54,6 +62,14 @@ namespace DB.Tests
 
             DeepAssert.Equal(Mapper.Map<RideEndListModel>(RideSeeds.Ride1), ride);
         }
+
+        [Fact]
+        public async Task GetById_Ride1()
+        {
+            var ride = await SUT.GetAsync(RideSeeds.Ride1.ID);
+
+            DeepAssert.Equal(Mapper.Map<RideDetailModel>(RideSeeds.Ride1), ride);
+        }
     }
 
     public class RideTimeFacadeTests : Bases.BaseMapperTests<RideTimeFacade>
@@ -77,6 +93,14 @@ namespace DB.Tests
             var ride = rides.Single(x => x.ID == RideSeeds.Ride1.ID);
 
             DeepAssert.Equal(Mapper.Map<RideTimeListModel>(RideSeeds.Ride1), ride);
+        }
+
+        [Fact]
+        public async Task GetById_Ride1()
+        {
+            var ride = await SUT.GetAsync(RideSeeds.Ride1.ID);
+
+            DeepAssert.Equal(Mapper.Map<RideDetailModel>(RideSeeds.Ride1), ride);
         }
     }
 }
