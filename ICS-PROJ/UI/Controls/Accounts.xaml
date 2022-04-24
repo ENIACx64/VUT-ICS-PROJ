@@ -10,13 +10,38 @@
     <Grid Background="White">
         <Label x:Name="Intro" HorizontalContentAlignment="Center" Content="WELCOME" HorizontalAlignment="Center" Height="56" Margin="0,52,0,0" VerticalAlignment="Top" Width="233" FontFamily="Bahnschrift" FontStyle="Normal" FontSize="48" FontWeight="SemiBold"/>
         <Label Content="INTO THE WORLD OF RIDESHARING" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Height="34" Margin="0,123,0,0" VerticalAlignment="Top" Width="368" FontSize="22" Typography.Capitals="Normal" FontFamily="Bahnschrift" FontWeight="Medium"/>
-        <ItemsControl x:Name="UserControl"/>
-        <!--<ListBox x:Name="UserListBox" ItemsSource="{Binding Users}" Height="200" Width="800" VerticalAlignment="Bottom">
-            <ListBox.ItemTemplate>
-                <DataTemplate >
-                     <Label Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Content="{Binding Name}" />
+        <!--<ItemsControl x:Name="UserControl" ItemsSource="{Binding Users}" VerticalAlignment="Bottom" Width="800" HorizontalAlignment="Center" >
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <local:UserProfileLabel UserName="{Binding Name}"></local:UserProfileLabel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>-->
+        <Button Click="Button_Click" Margin="650,250,21,0" Content="+" />
+        <ListBox x:Name="UserListBox" ItemsSource="{Binding Users}" Height="250" Width="600" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ListBoxItem}">
+                    <EventSetter
+                    Event="PreviewMouseLeftButtonDown" 
+                    Handler="ListBoxItem_PreviewMouseLeftButtonDown" />
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel IsItemsHost="True" />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate >
+                <DataTemplate  >
+                    <local:UserProfileLabel UserName="{Binding Name}"></local:UserProfileLabel>
+
                 </DataTemplate>
             </ListBox.ItemTemplate>
-        </ListBox>-->
+        </ListBox>
     </Grid>
 </UserControl>

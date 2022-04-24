@@ -12,20 +12,27 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using UI.Controls;
 
-namespace UI
+namespace UI.Controls
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for NewUser.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class NewUser : UserControl
     {
-        public MainWindow()
+        private readonly Grid grid;
+
+        public NewUser(Grid grid)
         {
             InitializeComponent();
+            this.grid = grid;
+        }
 
-            MainGrid.Children.Add(new Accounts(MainGrid));
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            grid.Children.Clear();
+            grid.Children.Add(new Accounts(grid));
+
         }
     }
 }

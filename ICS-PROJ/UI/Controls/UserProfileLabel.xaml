@@ -11,7 +11,5 @@
              Content="{Binding Path=UserName, ElementName=MyUserControl}"   
                />
         <Image VerticalAlignment="Top" Width="150" Height="160"/>
-        <Label Content="123"></Label>
-
     </Grid>
 </UserControl>

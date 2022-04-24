@@ -22,7 +22,16 @@ namespace UI.ViewModels
                 Name = "Romamas"
             });
 
-    
+            Users.Add(new UserListModel
+            {
+                Name = "Zelda"
+            });
+
+            Users.Add(new UserListModel
+            {
+                Name = "Malika"
+            });
+
         }
         public ObservableCollection<UserListModel> Users { get; set; } = new();
     }

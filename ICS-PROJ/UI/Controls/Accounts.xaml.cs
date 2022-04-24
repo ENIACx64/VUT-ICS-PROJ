@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BL.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,12 +22,39 @@ namespace UI.Controls
     /// </summary>
     public partial class Accounts : UserControl
     {
-        public Accounts()
+        private readonly Grid grid;
+
+        public Accounts(Grid grid)
         {
             InitializeComponent();
 
-            UserControl.DataContext = new UserListViewModel();
- 
+            UserListBox.DataContext = new UserListViewModel();
+            this.grid = grid;
+
+            //EventManager.RegisterClassHandler(typeof(ListBoxItem),
+            //ListBoxItem.MouseLeftButtonDownEvent,
+            //new RoutedEventHandler(this.OnMouseLeftButtonDown));
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            grid.Children.Clear();
+            grid.Children.Add(new NewUser(grid));
+        }
+
+        private void OnMouseLeftButtonDown(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void ListBoxItem_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var item = (ListBoxItem)sender;
+            var user = item.Content as UserListModel;
+            if (user == null)
+                return;
+
+            grid.Children.Clear();
+            grid.Children.Add(new Dashboard(grid, user));
         }
     }
 }
